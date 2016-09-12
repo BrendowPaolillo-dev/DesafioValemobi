@@ -1,0 +1,58 @@
+
+
+<section class="content-header">
+  <h2>Listando todas as compras realizadas</h2>
+</section>
+
+<section class="content">
+
+<%= render "layouts/callbacks" %>
+<div class="col-xs-12">
+          <% if @compras.empty? %>
+              <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                Ainda não foi feita nenhuma compra!
+              </div>  
+
+
+          <% else %>
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Compras</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+
+              <table class="table table-hover table-linkable ">
+                <tbody><tr>
+                  <th>Código</th>
+
+
+                  <th>Nome da mercadoria</th>
+                  <th>Quantidade comprada</th>
+                  <th>Preço do produto compra</th>
+                  <th>Preço total da compra</th>
+                </tr>
+                <% @compras.each do |compra| %>
+                  <tr data-href="<%= compra_path(compra) %>">
+                    <td><%= compra.id %></td>
+                    <td><%= compra.mercadoria.nome %></td>
+                    <td><%= compra.quantidade %></td>
+                    <td>R$<%= compra.mercadoria.preco %></td>
+                    <td>R$<%= compra.preco %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <% end %>
+                        <%= link_to new_compra_path do %>
+              <button class="btn btn-primary">Fazer uma nova compra</button>
+              <% end %>
+          <!-- /.box -->
+        </div>
+</section>
+

@@ -1,0 +1,22 @@
+<%= form_for(@compra) do |f| %>
+
+    <div class="form-group">
+    <label>Selecione o produto que deseja comprar</label>
+    <%= f.select(:mercadoria_id, @mercadorias.map { |l| ["#{l.nome} (R$ #{l.preco})", l.id] }, 
+      {:include_blank => false},
+      {  class: 'form-control select2'}) %>
+
+
+  </div>
+                <div class="form-group">
+    <%= f.label :quantidade %><br>
+    <%= f.number_field :quantidade, :class => "form-control", :placeholder => "Informe a quantidade do mercadoria", :min => 1 %>
+  </div>
+                <div class="form-group">
+    <%= f.label :preco %><br>
+    <%= f.text_field :preco, :class => "form-control", :placeholder => "Informe o preço do mercadoria" %>
+  </div>
+    <%= f.submit "Comprar mercadoria", :class => "btn btn-primary" %>
+
+  </div>
+<% end %>

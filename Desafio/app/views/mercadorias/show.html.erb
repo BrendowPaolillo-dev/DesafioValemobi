@@ -1,0 +1,44 @@
+<section class="content-header"></section>
+
+<section class="content">
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Detalhes da mercadoria <b><%= @mercadoria.nome %></b></h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+                  <div class="box-body">
+<%= render 'layouts/callbacks' %>
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody><tr>
+                <th style="width:50%">Nome:</th>
+                <td><%= @mercadoria.nome %></td>
+              </tr>
+              <tr>
+                <th>Tipo</th>
+                <td><%= @mercadoria.tipo %></td>
+              </tr>
+              <tr>
+                <th>Quantidade</th>
+                <td><%= @mercadoria.quantidade %> unidades</td>
+              </tr>
+              <tr>
+                <th>Preço</th>
+                <td>R$<%= @mercadoria.preco %></td>
+              </tr>
+            </tbody></table>
+          </div>
+  </div>
+
+  <div class="box-footer">
+<%= link_to edit_mercadoria_path(@mercadoria) do %>
+<button class="btn btn-primary">Editar mercadoria</button>
+<% end %> 
+
+  </div>
+</div>
+
+</section>
+

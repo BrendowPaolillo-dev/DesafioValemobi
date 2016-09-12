@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venda_id: 1
+  mercadoria_id: 1
+
+two:
+  venda_id: 1
+  mercadoria_id: 1

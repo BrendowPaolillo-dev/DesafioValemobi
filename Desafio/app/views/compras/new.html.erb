@@ -1,0 +1,29 @@
+<script>
+var mercadorias = [];
+
+<% @mercadorias.each do |mercadoria| %>
+mercadorias.push({"id" : <%= mercadoria.id %>, "preco" : <%= mercadoria.preco %>});
+<% end %>
+</script>
+
+<section class="content-header">
+  <h2>Compra de mercadoria (adição no estoque)</h2>
+</section>
+
+<section class="content">
+<%= render 'layouts/callbacks' %>
+<div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Preencha todas as informações</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+                  <div class="box-body">
+
+    <%= render 'form' %>
+
+</div>
+  </div>
+
+</section>
+

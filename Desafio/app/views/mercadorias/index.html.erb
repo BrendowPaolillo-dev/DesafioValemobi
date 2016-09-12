@@ -1,0 +1,54 @@
+<section class="content-header">
+  <h2>Listando todas as mercadorias</h2>
+</section>
+
+<section class="content">
+
+<%= render "layouts/callbacks" %>
+<div class="col-xs-12">
+          <% if Mercadoria.all.empty? %>
+              <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                Não há nenhuma mercadoria cadastrada
+              </div>  
+
+
+          <% else %>
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Mercadorias</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+
+              <table class="table table-hover table-linkable ">
+                <tbody>
+                <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Quantidade</th>
+                  <th>Preço</th>
+                </tr>
+                <% Mercadoria.all.each do |mercadoria| %>
+                  <tr data-href="<%= mercadoria_path(mercadoria) %>">
+                    <td><%= mercadoria.id %></td>
+                    <td><%= mercadoria.nome %></td>
+                    <td><%= mercadoria.tipo %></td>
+                    <td><span class="label label-success"><%= mercadoria.quantidade %> unidades</span></td>
+                    <td>R$<%= mercadoria.preco %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <% end %>
+                        <%= link_to new_mercadoria_path do %>
+              <button class="btn btn-primary">Cadastrar nova mercadoria</button>
+              <% end %>
+          <!-- /.box -->
+        </div>
+</section>

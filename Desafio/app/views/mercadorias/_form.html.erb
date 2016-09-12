@@ -1,0 +1,28 @@
+<%= form_for(@mercadoria) do |f| %>
+
+   <div class="form-group">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, :class => "form-control", :placeholder => "Informe o nome do mercadoria"  %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :tipo %><br>
+    <%= f.select(:tipo, 
+    ["Produtos de limpeza", 
+      "Lacticínios",
+      "Carnes", 
+      "Outro"], 
+      {:selected=> "Produtos de limpeza", :include_blank => false},
+      {  class: 'form-control select2'} ) %>
+
+
+  </div>
+
+                <div class="form-group">
+    <%= f.label :preco %><br>
+    <%= f.text_field :preco, :class => "form-control", :placeholder => "Informe o preço do mercadoria" %>
+  </div>
+   <div class="box-footer">
+    <%= f.submit (@mercadoria.persisted? ? "Editar mercadoria" : "Cadastrar mercadoria"),:class => "btn btn-primary" %>
+  </div>
+<% end %>
